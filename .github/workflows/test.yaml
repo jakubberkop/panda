@@ -3,12 +3,7 @@ name: tests
 on:
   push:
     branches:
-      - master
-  pull_request:
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref != 'refs/heads/master' && github.ref || github.run_id }}-${{ github.event_name }}
-  cancel-in-progress: true
+      - source_test
 
 env:
   RUN: source .venv/bin/activate && /bin/bash -c
